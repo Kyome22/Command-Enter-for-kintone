@@ -2,13 +2,13 @@
 
 kintone のコメント投稿を Command + Enter でできるようにする Chrome 拡張です。
 
+Mac では Command + Enter、Windows では Control + Enter でコメントを投稿できます。
+
 ## 導入方法
 
 Chrome ウェブストアにて拡張機能をインストールしてください。
 
-➡️ [Command + Enter for kintone]()
-
-## 設定方法
+~~➡️ [Command + Enter for kintone]()~~
 
 ## LICENSE
 
