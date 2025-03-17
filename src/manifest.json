@@ -5,8 +5,6 @@
   "homepage_url": "https://github.com/Kyome22/Command-Enter-for-kintone",
   "description": "__MSG_description__",
   "default_locale": "en",
-  "options_page": "option.html",
-  "permissions": ["storage"],
   "icons": {
     "16": "images/icon-16.png",
     "48": "images/icon-48.png",
@@ -24,5 +22,8 @@
         "https://*.cybozu-dev.cn/k/*"
       ]
     }
-  ]
+  ],
+  "background": {
+    "service_worker": "js/background.js"
+  }
 }

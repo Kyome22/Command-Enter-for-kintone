@@ -1,6 +1,5 @@
 {
   "description": {
     "message": "This is a Chrome extension that allows you to post comments on kintone using Command + Enter."
-  },
-  "title": { "message": "Command + Enter for kintone - Preferences" }
+  }
 }

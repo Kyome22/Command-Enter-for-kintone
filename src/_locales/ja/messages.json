@@ -1,6 +1,5 @@
 {
   "description": {
     "message": "kintoneのコメント投稿をCommand + EnterでできるようにするChrome拡張です。"
-  },
-  "title": { "message": "Command + Enter for kintone 拡張設定" }
+  }
 }
