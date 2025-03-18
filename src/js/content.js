@@ -3,8 +3,8 @@
 
   const postComment = () => {
     const focusedForm = document.activeElement.closest("form");
-    const postButton = focusedForm.querySelector('button[type="submit"]');
-    postButton.click();
+    const postButton = focusedForm?.querySelector('button[type="submit"]');
+    postButton?.click();
   };
 
   document.addEventListener("keydown", (event) => {
