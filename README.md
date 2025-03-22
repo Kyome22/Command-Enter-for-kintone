@@ -8,7 +8,7 @@ Mac では Command + Enter、Windows では Control + Enter でコメントを�
 
 Chrome ウェブストアにて拡張機能をインストールしてください。
 
-~~➡️ [Command + Enter for kintone]()~~
+➡️ [Command + Enter for kintone](https://chromewebstore.google.com/detail/cplahbnjifpelefpmbachcpfjkkohgjn)
 
 ## LICENSE
 
