@@ -1,29 +1,47 @@
 (() => {
   "use strict";
 
-  const postComment = () => {
-    const focusedForm = document.activeElement.closest("form");
+  const postComment = (root) => {
+    const focusedForm = root.activeElement.closest("form");
     const postButton = focusedForm?.querySelector('button[type="submit"]');
     postButton?.click();
   };
 
-  document.addEventListener("keydown", (event) => {
-    if (event.code === "Enter") {
-      let modifierKey = null;
-      if (!event.shiftKey && !event.altKey && !event.ctrlKey && event.metaKey) {
-        modifierKey = "command";
-      } else if (!event.shiftKey && !event.altKey && event.ctrlKey && !event.metaKey) {
-        modifierKey = "control";
-      } else {
-        return;
+  const judge = (event, root) => {
+    if (event.code !== "Enter") return;
+    if (event.shiftKey || event.altKey) return;
+
+    chrome.runtime.sendMessage({ action: "post_comment" }, (response) => {
+      if (!event.ctrlKey && event.metaKey && response.os === "mac") {
+        postComment(root);
+      } else if (event.ctrlKey && !event.metaKey && response.os === "win") {
+        postComment(root);
       }
-      chrome.runtime.sendMessage({ action: "post-comment" }, (response) => {
-        if (modifierKey === "command" && response.os === "mac") {
-          postComment();
-        } else if (modifierKey === "control" && response.os === "win") {
-          postComment();
-        }
+    });
+  };
+
+  const setup = () => {
+    document.addEventListener("keydown", function (event) {
+      judge(event, this);
+    });
+
+    const observer = new MutationObserver(() => {
+      const iframe = document.querySelector("iframe");
+      if (iframe === undefined || iframe === null) return;
+
+      iframe.addEventListener("load", function () {
+        this.contentWindow.document.addEventListener("keydown", function (event) {
+          judge(event, this);
+        });
       });
-    }
-  });
+    });
+
+    observer.observe(document.querySelector("body"), {
+      attributes: false,
+      childList: true,
+      subtree: true,
+    });
+  };
+
+  setup();
 })();
