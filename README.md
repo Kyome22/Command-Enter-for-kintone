@@ -1,4 +1,4 @@
-# Command-Enter-for-kintone
+# Command Enter for kintone
 
 kintone のコメント投稿を Command + Enter でできるようにする Chrome 拡張です。
 
